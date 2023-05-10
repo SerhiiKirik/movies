@@ -1,36 +1,81 @@
 {
   "name": "movies",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.7.10",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
+    "@mui/styled-engine-sc": "^5.11.9",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "classnames": "^2.3.2",
+    "final-form": "^4.20.9",
+    "flat": "^5.0.2",
+    "graphql": "^16.6.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-final-form": "^6.5.9",
+    "react-intl": "^6.3.2",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
+    "react-world-flags": "^1.5.1",
+    "react-youtube": "^10.1.0",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+  },
   "scripts": {
-    "frontend": "npm --prefix ./client run start",
-    "api": "npm --prefix ./server run dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently --names \"server, client\" -c \"green,magenta\" \"npm run api\" \"npm run frontend\"",
-    "build": "tsc",
-    "start": "ts-node server/src/index.ts"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:VolodymyrKirichenko/Movies_Recommendation.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "author": "volodymyr",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/VolodymyrKirichenko/Movies_Recommendation/issues"
-  },
-  "homepage": "https://github.com/VolodymyrKirichenko/Movies_Recommendation#readme",
   "devDependencies": {
     "@graphql-codegen/cli": "2.9.1",
     "@graphql-codegen/introspection": "2.2.0",
     "@graphql-codegen/typescript": "2.7.2",
     "@graphql-codegen/typescript-operations": "2.5.2",
     "@graphql-codegen/typescript-react-apollo": "3.3.2",
-    "concurrently": "^7.4.0",
-    "husky": "^8.0.1"
+    "@testing-library/dom": "^9.0.0",
+    "@types/flat": "^5.0.2",
+    "@types/react-world-flags": "^1.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0"
   },
-  "dependencies": {
-    "react-share": "^4.4.1"
+  "overrides": {
+    "react-refresh": "0.11.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
