@@ -15,7 +15,7 @@ interface Props {
 export const ModalInput: FC<Props> = (props) => {
   const { copy, url } = props;
 
-  // const path = url.split('?')[1];
+  const path = url.split('?')[1];
 
   return (
     <Paper
@@ -39,7 +39,7 @@ export const ModalInput: FC<Props> = (props) => {
 
       <IconButton
         component={Link}
-        to={`${url}`}
+        to={`/recommend?${path}`}
         target="_blank"
         sx={{ p: '10px' }}
         aria-label="preview"
