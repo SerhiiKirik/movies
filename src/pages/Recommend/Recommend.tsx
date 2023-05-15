@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import React, {
-  FC, useCallback, useEffect, useState,
+  FC, useEffect, useState,
 } from 'react';
 import {
   Box,
@@ -17,9 +17,6 @@ import { MOVIES_BY_IDS_QUERY } from './queries';
 import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { useMovie } from '../../hooks/useMovie';
 import { HomeLoader } from '../Home/HomeLoader/HomeLoader';
-import {
-  useLocalStorageMovie,
-} from '../../components/MovieCard/useLocalStorageMovie';
 
 interface Params {
   ids: number[],
@@ -32,24 +29,6 @@ export const Recommend: FC = () => {
     ids: [],
     title: '',
   });
-
-  const [favoriteMovies, setMovie] = useLocalStorageMovie<Movie[]>('movies_favorite', []);
-
-  const handleToggle = useCallback((movie: Movie) => {
-    const isAlreadyAdded = favoriteMovies.some(({ id }) => id === movie.id);
-
-    if (isAlreadyAdded) {
-      const newMovies = favoriteMovies.filter(({ id }) => id !== movie.id);
-
-      setMovie(newMovies);
-
-      return;
-    }
-
-    const newMovies = [...favoriteMovies, movie];
-
-    setMovie(newMovies);
-  }, [favoriteMovies, setMovie]);
 
   const { selectMovie } = useMovie();
 
@@ -86,16 +65,12 @@ export const Recommend: FC = () => {
 
               <Grid container spacing={2}>
                 {data.moviesByIds.map((movie: Movie) => {
-                  const isAlreadyAdded = favoriteMovies.some(({ id }) => id === movie.id);
-
                   return (
                     <Grid key={movie.id} item xs={6} sm={4} md={3} lg={2}>
                       <MovieCard
-                        onToggleLC={handleToggle}
                         movie={movie}
                         onCardSelect={selectMovie}
                         isPreviewMode={false}
-                        isAdded={isAlreadyAdded}
                       />
                     </Grid>
                   );

@@ -9,9 +9,9 @@ import { CardInfo } from './CardInfo/CardInfo';
 interface Props {
   movie: Movie,
   isPreviewMode: boolean,
-  isAdded: boolean;
+  isAdded?: boolean;
   onCardSelect: (movie: Movie) => void,
-  onToggleLC: (movie: Movie) => void;
+  onModifyMovies?: (movie: Movie) => void;
 }
 
 export const MovieCard: FC<Props> = (props) => {
@@ -20,7 +20,7 @@ export const MovieCard: FC<Props> = (props) => {
     isPreviewMode,
     isAdded,
     onCardSelect,
-    onToggleLC,
+    onModifyMovies,
   } = props;
 
   return (
@@ -33,7 +33,7 @@ export const MovieCard: FC<Props> = (props) => {
         <CardMenuData
           movie={movie}
           onCardSelect={onCardSelect}
-          onSelectMovie={onToggleLC}
+          onSelectMovie={onModifyMovies}
           isMovieAdded={isAdded}
         />
       ) : (

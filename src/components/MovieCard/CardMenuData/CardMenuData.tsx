@@ -27,9 +27,9 @@ export const StyledLink = styled(Link)(() => ({
 
 interface Props {
   movie: Movie,
-  isMovieAdded: boolean;
+  isMovieAdded?: boolean;
   onCardSelect: (movie: Movie) => void,
-  onSelectMovie: (movie: Movie) => void;
+  onSelectMovie?: (movie: Movie) => void;
 }
 
 export const CardMenuData: FC<Props> = (props) => {
@@ -41,6 +41,8 @@ export const CardMenuData: FC<Props> = (props) => {
   } = props;
 
   const { getSearch } = useSearch();
+
+  const isMovieMissing = !isMovieAdded && onSelectMovie;
 
   return (
     <CardMenu>
@@ -64,16 +66,18 @@ export const CardMenuData: FC<Props> = (props) => {
           <FormattedMessage id="burger_menu.select" />
         </MenuItems>
 
-        {!isMovieAdded ? (
+        {isMovieMissing ? (
           <MenuItems onClick={() => onSelectMovie(movie)}>
             <FavoriteBorderIcon />
             <FormattedMessage id="burger_menu.favorite" />
           </MenuItems>
         ) : (
-          <MenuItems onClick={() => onSelectMovie(movie)}>
-            <FavoriteIcon />
-            <FormattedMessage id="burger_menu.favorite" />
-          </MenuItems>
+          onSelectMovie && (
+            <MenuItems onClick={() => onSelectMovie(movie)}>
+              <FavoriteIcon />
+              <FormattedMessage id="burger_menu.favorite" />
+            </MenuItems>
+          )
         )}
       </Box>
     </CardMenu>
