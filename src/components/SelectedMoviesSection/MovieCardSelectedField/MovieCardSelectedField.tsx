@@ -19,7 +19,7 @@ export const MovieCardSelectedField: FC<Props> = (props) => {
 
   const onSubmit = (values: Values) => {
     const ids = selectedMovies.map((movie) => movie.id);
-    const newLink = `${window.location.host}/recommend?title=${values.listName}&ids=${ids.join()}`;
+    const newLink = `https://movies-f6s8.vercel.app/recommend?title=${values.listName}&ids=${ids.join()}`;
 
     setLink(newLink);
     setListName(listName);

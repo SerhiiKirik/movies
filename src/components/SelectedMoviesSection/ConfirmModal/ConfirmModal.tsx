@@ -8,13 +8,14 @@ import { useTimer } from '../../../hooks/useTimer';
 import { ModalAlert } from './ModalAlert/ModalAlert';
 import { ModalTitle } from './ModalTitle/ModalTitle';
 import { ModalInput } from './ModalInput/ModalInput';
+import { ModalShare } from './ModalShare/ModalShare';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  height: 200,
+  height: 300,
   width: 400,
   bgcolor: 'background.paper',
   border: '2px transparent #000',
@@ -71,6 +72,8 @@ export const ConfirmModal: FC<Props> = (props) => {
         {openAlert && (
           <ModalAlert onOpen={setOpenAlert} />
         )}
+
+        <ModalShare url={url} />
       </Box>
     </Modal>
   );
